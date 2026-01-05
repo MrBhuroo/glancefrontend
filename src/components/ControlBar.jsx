@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     FiMic,
     FiMicOff,
@@ -18,6 +18,20 @@ const ControlBar = ({
     onToggleScreenShare,
     onLeave
 }) => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        // Detect mobile device - screen sharing not supported on mobile browsers
+        const checkMobile = () => {
+            const mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            setIsMobile(mobile);
+        };
+
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     return (
         <div className="control-bar glass">
             <div className="controls flex-center gap-md">
@@ -39,14 +53,16 @@ const ControlBar = ({
                     {isVideoOff ? <FiVideoOff size={24} /> : <FiVideo size={24} />}
                 </button>
 
-                {/* Screen Share Toggle */}
-                <button
-                    onClick={onToggleScreenShare}
-                    className={`control-btn ${isSharingScreen ? 'active' : ''}`}
-                    title={isSharingScreen ? 'Stop Sharing' : 'Share Screen'}
-                >
-                    <FiMonitor size={24} />
-                </button>
+                {/* Screen Share Toggle - Hidden on Mobile (not supported) */}
+                {!isMobile && (
+                    <button
+                        onClick={onToggleScreenShare}
+                        className={`control-btn ${isSharingScreen ? 'active' : ''}`}
+                        title={isSharingScreen ? 'Stop Sharing' : 'Share Screen'}
+                    >
+                        <FiMonitor size={24} />
+                    </button>
+                )}
 
                 {/* Leave Meeting */}
                 <button
