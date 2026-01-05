@@ -1,0 +1,81 @@
+.control-bar {
+    position: fixed;
+    bottom: var(--spacing-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: var(--spacing-md) var(--spacing-lg);
+    z-index: 100;
+}
+
+.controls {
+    gap: var(--spacing-md);
+}
+
+.control-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-normal);
+    position: relative;
+}
+
+.control-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.control-btn.active {
+    background: var(--primary-orange);
+}
+
+.leave-btn {
+    background: #dc2626;
+}
+
+.leave-btn:hover {
+    background: #b91c1c;
+}
+
+/* Tooltip on hover */
+.control-btn::before {
+    content: attr(title);
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 1rem;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    font-size: 0.875rem;
+    border-radius: var(--border-radius);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-fast);
+}
+
+.control-btn:hover::before {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .control-bar {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    .control-btn {
+        width: 48px;
+        height: 48px;
+    }
+
+    .controls {
+        gap: var(--spacing-sm);
+    }
+}

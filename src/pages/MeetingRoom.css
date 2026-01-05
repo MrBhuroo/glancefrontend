@@ -1,0 +1,124 @@
+.meeting-room {
+    height: 100vh;
+    width: 100vw;
+    background: var(--deep-black);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.meeting-loading {
+    height: 100vh;
+}
+
+.meeting-header {
+    padding: var(--spacing-md) var(--spacing-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.meeting-info {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+.meeting-id {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.meeting-timer {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--text-secondary);
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+}
+
+.meeting-timer::before {
+    content: '⏱️';
+}
+
+.meeting-actions {
+    align-items: center;
+}
+
+.meeting-content {
+    flex: 1;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+.video-section {
+    flex: 1;
+    padding: var(--spacing-lg);
+    position: relative;
+}
+
+.side-panel {
+    width: 350px;
+    background: var(--card-black);
+    border-left: 1px solid var(--glass-border);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.panel-close {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    z-index: 10;
+}
+
+.panel-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .side-panel {
+        width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .meeting-header {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    .meeting-info {
+        gap: var(--spacing-sm);
+        font-size: 0.875rem;
+    }
+
+    .video-section {
+        padding: var(--spacing-sm);
+    }
+
+    .side-panel {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        max-width: 350px;
+        z-index: 100;
+    }
+}

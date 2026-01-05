@@ -1,0 +1,46 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: var(--spacing-md) 0;
+}
+
+.navbar-content {
+    min-height: 60px;
+}
+
+.navbar-logo {
+    text-decoration: none;
+}
+
+.logo-text {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.navbar-actions {
+    align-items: center;
+}
+
+.navbar-btn {
+    white-space: nowrap;
+}
+
+.user-info {
+    align-items: center;
+    color: var(--text-secondary);
+    padding: 0 var(--spacing-sm);
+}
+
+@media (max-width: 768px) {
+    .navbar-btn span {
+        display: none;
+    }
+
+    .user-info span {
+        display: none;
+    }
+}

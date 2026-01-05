@@ -1,0 +1,276 @@
+.landing-page {
+    padding-top: 80px;
+}
+
+/* HERO SECTION */
+.hero-section {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--gradient-radial), var(--deep-black);
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-overlay);
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xl);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-cta {
+    justify-content: center;
+}
+
+.btn-lg {
+    padding: 1.125rem 2.5rem;
+    font-size: 1.125rem;
+}
+
+/* SECTION COMMON */
+.section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: var(--spacing-md);
+}
+
+.section-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xl);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* FEATURES SECTION */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.feature-card {
+    text-align: center;
+    transition: all var(--transition-normal);
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    color: white;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.feature-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* SECURITY SECTION */
+.security-section {
+    background: rgba(255, 107, 53, 0.05);
+}
+
+.security-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+.security-features {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.security-item {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.security-item h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.security-item p {
+    margin: 0;
+}
+
+.security-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.security-badge {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-align: center;
+    animation: glow 3s ease-in-out infinite;
+}
+
+.security-badge p {
+    margin-top: var(--spacing-md);
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+/* WORKFLOW SECTION */
+.workflow-steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: var(--spacing-xl);
+    position: relative;
+}
+
+.workflow-step {
+    flex: 1;
+    text-align: center;
+    max-width: 300px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.step-number {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    font-size: 2rem;
+    font-weight: 800;
+    color: white;
+}
+
+.workflow-step h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.workflow-connector {
+    width: 100px;
+    height: 2px;
+    background: var(--gradient-primary);
+    align-self: center;
+    margin-top: 40px;
+}
+
+/* CTA SECTION */
+.cta-section {
+    background: var(--gradient-radial);
+}
+
+.cta-content {
+    text-align: center;
+    padding: var(--spacing-xl);
+}
+
+.cta-content h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: var(--spacing-md);
+}
+
+.cta-content p {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-xl);
+}
+
+.cta-buttons {
+    justify-content: center;
+}
+
+/* FOOTER */
+.landing-footer {
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+    border-top: 1px solid var(--glass-border);
+}
+
+.landing-footer p {
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .security-content {
+        grid-template-columns: 1fr;
+    }
+
+    .security-visual {
+        order: -1;
+    }
+
+    .security-badge {
+        width: 200px;
+        height: 200px;
+    }
+
+    .workflow-steps {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-lg);
+    }
+
+    .workflow-connector {
+        width: 2px;
+        height: 50px;
+        margin: 0;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+}
